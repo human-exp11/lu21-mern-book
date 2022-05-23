@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mernDB',
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mernDB',
 { 
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -8,8 +8,8 @@ const {authMiddleware} = require('./utils/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+console.log (PORT)
 
-server.applyMiddleware({ app });
 
 //Apollo server
 const server = new ApolloServer({
@@ -31,6 +31,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+db.once('open', async () => {
+  // await server.start();
+  server.applyMiddleware({ app, path: '/' })
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  })
 });
