@@ -61,7 +61,7 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 
 ## Screenshot
 
-* [Screenshot](https://human-exp11.github.io/20/#about)
+![alt text](images/HP.png)
 
 ---
 
