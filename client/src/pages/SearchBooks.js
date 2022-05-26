@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import Auth from '../utils/auth';
-import {SAVE_BOOK} from '../utils/mutations';
-
+import { ADD_BOOK } from '../utils/mutations';
 import {  searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -17,7 +16,7 @@ const SearchBooks = () => {
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
   // utilize mutation to define saveBook fx
-  const [saveBook] = useMutation(SAVE_BOOK)
+  const [addBook] = useMutation(ADD_BOOK)
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
@@ -70,7 +69,7 @@ const SearchBooks = () => {
     }
 
     try {
-      const response =  await saveBook({
+      const response =  await addBook({
           variables: {input:  bookToSave}});
       if (!response.ok) {
         throw new Error('something went wrong');

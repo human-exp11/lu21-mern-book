@@ -1,9 +1,6 @@
 {
   "name": "googlebooks-app",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.x"
-  },
   "description": "",
   "main": "server/server.js",
   "scripts": {
@@ -17,16 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
-  },
-  "dependencies": {
-    "@apollo/react-hooks": "^4.0.0",
-    "apollo-server-express": "^3.7.0",
-    "if-env": "^1.0.4",
-    "bcrypt": "^5.0.1",
-    "express": "^4.17.1",
-    "graphql": "^15.6.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.9"
   }
-  }
+}
+
 
